@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Slide Show Ảnh</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .slideshow-container {
+      position: relative;
+      width: 600px;
+      height: 400px;
+      border: 5px solid #8e44ad;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      background-color: #fff;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      user-select: none;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .quay-lai {
+    text-align: center;
+  }
+
+.quay-lai a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    background-color: #8e44ad;
+    padding: 12px 12px;
+    border-radius: 10px;
+}
+  </style>
+</head>
+<body>
+  <div class="slideshow-container">
+    <div class="slide">
+      <img src="/IMG_5879.png" alt="Ảnh 1">
+    </div>
+    <div class="slide">
+      <img src="/dg3.png" alt="Ảnh 2">
+    </div>
+    <div class="slide">
+      <img src="/dog1.png" alt="Ảnh 3">
+    </div>
+    <div class="slide">
+      <img src="/dog2.png" alt="Ảnh 4">
+    </div>
+    <div class="slide">
+      <img src="/hqdefault.jpg" alt="Ảnh 5">
+    </div>
+    <div class="slide">
+      <img src="/icon.jpg" alt="Ảnh 6">
+    </div>
+    <div class="slide">
+      <img src="/images.jpg" alt="Ảnh 7">
+    </div>
+    <div class="slide">
+      <img src="/IMG_5303.jpg" alt="Ảnh 8">
+    </div>
+    <div class="slide">
+      <img src="/IMG_5857.jpg" alt="Ảnh 9">
+    </div>
+    <div class="slide">
+      <img src="/IMG_5867.jpg" alt="Ảnh 10">
+    </div>
+
+
+    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+
+    function showSlide(index) {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      slideIndex = (index + slides.length) % slides.length;
+      slides[slideIndex].style.display = "block";
+    }
+
+    function changeSlide(n) {
+      showSlide(slideIndex + n);
+    }
+
+    // Hiển thị slide đầu tiên khi tải trang
+    showSlide(slideIndex);
+  </script>
+
+  <div class="quay-lai">
+    <a href="index.html">Quay lại</a>
+  </div>
+
+</body>
+</html>
